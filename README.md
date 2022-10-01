@@ -23,21 +23,6 @@ You have one week to finish this challenge.
 11. If the ad data and the customer data were not accessible from the database but from other RESTful services, what approach would you use to integrate these services? 
 12. If you decide not to write tests for your work for reasons of timeboxing, please spend a few minutes to describe what parts of the application you would write tests for, and what aspects these tests would cover, and what role they play in the development process.
 
-Good Luck!
-
-## Tasks status:
-1. Because it's a very basic functionality, I've decided to package by layer(api, service, persistence). Another (maybe better) way is to package by feature (ad, customer).
-2. done using JPA + H2 (in-memory db).
-3. done
-4. done
-5. added an OneToMany relationship between customer an ad
-6. done using javax.validation annotations
-7. done using log4j2 config + RollingFile
-8. done. 404 is easily reproducible by calling GET /ads/:id or GET /customers/:id with an id of non-existent entity.
-9. done. it creates an executable jar with `mvn clean package`
-10. [done](http://localhost:8080/swagger-ui/index.html) 
-11. in this case we can use aggregator pattern.
-12. The tests are not included for all the functionalities and methods(timebox), but they are covering only 1 functionality for each slice (controller, service, persistence), plus an Integration Test which performs the full flow (from api to db). 
 
 ## HOW TO:
 (assuming you have java and maven installed)
