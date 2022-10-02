@@ -2,34 +2,38 @@ package de.admanagement.api;
 
 import de.admanagement.service.CustomerService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Component;
 
-import java.util.List;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Component
+import java.util.Collection;
+
+@RestController
+@RequestMapping("customers")
 @RequiredArgsConstructor
-public class CustomerRestController implements CustomerResource {
+public class CustomerRestController implements Resource<Customer, Long> {
 
     private final CustomerService customerService;
 
     @Override
-    public ResponseEntity<Customer> getCustomer(Long customerId) {
-        return ResponseEntity.of(customerService.get(customerId));
+    public ResponseEntity<Customer> findById(Long id) {
+        return ResponseEntity.of(customerService.get(id));
     }
 
     @Override
-    public Long createCustomer(Customer customer) {
-        return customerService.create(customer).getId();
+    public ResponseEntity<Customer> create(Customer customer) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(customerService.create(customer));
     }
 
     @Override
-    public void deleteCustomer(Long customerId) {
-        customerService.delete(customerId);
+    public void deleteById(Long id) {
+        customerService.delete(id);
     }
 
     @Override
-    public List<Customer> list() {
-        return customerService.list();
+    public ResponseEntity<Collection<Customer>> findAll() {
+        return ResponseEntity.ok(customerService.list());
     }
 }

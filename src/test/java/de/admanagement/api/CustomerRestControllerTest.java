@@ -109,7 +109,7 @@ class CustomerRestControllerTest {
                     .andReturn();
 
             String actualResponseBody = mvcResult.getResponse().getContentAsString();
-            assertThat(actualResponseBody).isEqualToIgnoringWhitespace(customer.getId().toString());
+            assertThat(actualResponseBody).isEqualToIgnoringWhitespace(objectMapper.writeValueAsString(customer));
         }
     }
 }
