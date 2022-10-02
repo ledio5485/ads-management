@@ -13,7 +13,7 @@ import java.util.Collection;
 @RestController
 @RequestMapping("customers")
 @RequiredArgsConstructor
-public class CustomerRestController implements Resource<Customer, Long> {
+public class CustomerResource implements Resource<Customer, Long> {
 
     private final CustomerService customerService;
 

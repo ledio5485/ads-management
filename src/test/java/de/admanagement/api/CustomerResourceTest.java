@@ -23,8 +23,8 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @ExtendWith(SpringExtension.class)
-@WebMvcTest(CustomerRestController.class)
-class CustomerRestControllerTest {
+@WebMvcTest(CustomerResource.class)
+class CustomerResourceTest {
     @Autowired
     private MockMvc mockMvc;
 

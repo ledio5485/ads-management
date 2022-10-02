@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("ads")
 @RequiredArgsConstructor
-public class AdRestController implements Resource<Ad, Long> {
+public class AdResource implements Resource<Ad, Long> {
 
     private final AdService adService;
 
